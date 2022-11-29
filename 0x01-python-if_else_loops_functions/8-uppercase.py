@@ -6,6 +6,7 @@ def p_letter(c, dlm):
     else:
         print("{}{}".format(c, dlm), end="")
 
+
 def uppercase(str):
     for index, c in enumerate(str):
         if index == (len(str) - 1):
