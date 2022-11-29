@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdio.h>
 
 /**
 * check_cycle - check if there is a loop in the linked list.
@@ -7,17 +8,31 @@
 */
 int check_cycle(listint_t *list)
 {
-	listint_t *prev, *next, *curr;
+	int i = 0, j = 0, loop = 0;
+	listint_t *temp = list, *curr = list;
 
 	while (curr != NULL)
 	{
-		prev = curr;
-		next = curr->next;
-		if (prev == next->next)
-			return (1);
-
+		if (i > 0)
+		{
+			temp = list;
+			j = 0;
+			while (j < i)
+			{
+				if (temp == curr->next)
+				{
+					loop = 1;
+					break;
+				}
+				temp = temp->next;
+				j++;
+			}
+			if (loop)
+				break;
+		}
 		curr = curr->next;
+		i++;
 	}
 
-	return (0);
+	return (loop);
 }
