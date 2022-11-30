@@ -7,5 +7,5 @@ def remove_char_at(str, n):
         if index != n:
             print("{}".format(c), end="")
         index = index + 1
-    
+
     return ""
