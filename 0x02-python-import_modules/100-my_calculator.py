@@ -25,7 +25,7 @@ operators: +, -, * and /\n")
         result = add(a, b)
     elif op == '-':
         result = sub(a, b)
-    elif opt == '*':
+    elif op == '*':
         result = mul(a, b)
     else:
         result = div(a, b)
