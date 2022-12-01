@@ -7,12 +7,12 @@ if __name__ == "__main__":
 
     opr = ['+', '-', '*', '/']
     if len(sys.argv) - 1 != 3:
-        sys.stderr.write("Usage: ./100-my_calculator.py <a> <operator> <b>\n")
+        print("Usage: ./100-my_calculator.py <a> <operator> <b>", end="\n")
         sys.exit(1)
 
     if sys.argv[2] not in opr:
-        sys.stderr.write("Unknown operator. Available \
-operators: +, -, * and /\n")
+        print("Unknown operator. Available \
+operators: +, -, * and /", end="\n")
         sys.exit(1)
 
     a = int(sys.argv[1])
