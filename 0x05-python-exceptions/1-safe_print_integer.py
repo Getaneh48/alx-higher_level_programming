@@ -7,5 +7,6 @@ def safe_print_integer(value):
         print("{:d}".format(value), end="\n")
         status = 1
     except ValueError:
+        status = 0
         pass
     return status
