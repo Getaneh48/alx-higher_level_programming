@@ -3,11 +3,9 @@
 def safe_print_integer(value):
     status = 0
     try:
-        if (isinstance(value, int)):
-            print("{:d}".format(value), end="\n")
-            status = 1
-        else:
-            raise TypeError
-    except TypeError:
+        value = int(value)
+        print("{:d}".format(value), end="\n")
+        status = 1
+    except ValueError:
         pass
     return status
