@@ -5,15 +5,22 @@
 
 class Node:
     def __init__(self, data, next_node=None):
+        """Initialize a new Node.
+        Args:
+            data (int): The data of the new Node.
+            next_node (Node): The next node of the new Node.
+        """
         self.data = data
         self.next_node = next_node
 
     @property
     def data(self):
+        """get the data of the Node"""
         return (self.__data)
 
     @data.setter
     def data(self, value):
+        """sets the data of the Node"""
         if type(value) is int:
             self.__data = value
         else:
@@ -21,6 +28,7 @@ class Node:
 
     @property
     def next_node(self):
+        """get the data of the Node"""
         return (self.__next_node)
 
     @next_node.setter
@@ -39,9 +47,7 @@ class SinglyLinkedList:
         self.head = None
 
     def __str__(self):
-        """
-           prints string version of the object
-        """
+        """Define the print() representation of a SinglyLinkedList."""
         current_node = self.head
         while current_node is not None:
             print("{}".format(str(current_node.data)), end="\n")
