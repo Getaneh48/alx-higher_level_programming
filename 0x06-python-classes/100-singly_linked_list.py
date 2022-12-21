@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 
+""" a class represents a single linked list Node """
+
+
 class Node:
     def __init__(self, data, next_node=None):
         self.data = data
@@ -28,10 +31,9 @@ class Node:
             raise TypeError("next_node must be a Node object")
 
 
-"""A class that defines single linked list"""
-
-
 class SinglyLinkedList:
+    """A class that defines single linked list"""
+
     def __init__(self):
         """Initialize the instance"""
         self.head = None
