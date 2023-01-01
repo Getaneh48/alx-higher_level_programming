@@ -8,7 +8,11 @@ def matrix_mul(m_a, m_b):
     if not type(m_a) is list or not type(m_b) is list:
         raise TypeError("m_a must be a list or m_b must be a list")
 
-    #check if the matrix is a list of lists
+    #check if the matrixes are valid
+    for m in [m_a, m_b]:
+        validate_matrix(m)
+
+
 
 def validate_matrix(m):
     """check if the given matrix is valid"""
@@ -30,11 +34,13 @@ def validate_matrix(m):
     for e in m:
        for i in e:
            if not i is int or not i is float:
-               raise TypeError("m_a should contain only integers or floats or m_b should contain only integers or floats"
+               raise TypeError("m_a should contain only integers or floats or m_b should "\
+                               "contain only integers or float"
     
     #checks if the rows of the matrix are equal
     row_len = len(m[0])
     for e in m:
         if len(e) != row_len
-            raise TypeError("each row of m_a must be of the same size or each row of m_b must be of the same size")
+            raise TypeError("each row of m_a must be of the same size or each row of "\
+                            "m_b must be of the same size")
 
