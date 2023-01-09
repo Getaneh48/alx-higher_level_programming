@@ -3,7 +3,8 @@
    instance of a class that inherited from"""
 
 
-def is_same_class(obj, a_class):
+def is_kind_of_class(obj, a_class):
+
     """returns True if it is inherited from a specified class
        otherwise False.
     """
