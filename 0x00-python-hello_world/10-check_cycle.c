@@ -2,9 +2,9 @@
 #include <stdio.h>
 
 /**
-* a function in C that checks if a singly linked list has a cycle in it
-* @list: list
-* Return: 0 if there is no cycle, 1 if there is a cycle
+* check_cycle - check if there is a loop in the linked list.
+* @list: single linked list
+* Return: 1 Loop exist 0 Loop free
 */
 int check_cycle(listint_t *list)
 {
