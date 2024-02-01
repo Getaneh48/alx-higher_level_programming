@@ -1,0 +1,54 @@
+>>> add = __import__('0-add_integer').add
+
+>>> add(0, None)
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+>>> add(None, None)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> add(None, 4)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> add(4)
+Traceback (most recent call last):
+...
+TypeError: add() missing 1 required positional argument: 'b'
+
+>>> add('a', 'bfd')
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+add(4, 'bfd')
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+>>> add(-1, 'g')
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+>>> add(-1, 4.0)
+3
+
+>>> add(-1.0, 4.0)
+3
+
+>>> add(0.0, 0.0)
+0
+
+>>> add(0, 0)
+0
+
+>>> add(6, 4)
+10
+
+>>> add(6.0, 4.0)
+10
