@@ -1,74 +1,80 @@
 #!/usr/bin/python3
-"""module that defines a square object"""
+"""
+Defines a Square class
+"""
 from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    """Defines a square class"""
-
+    """
+    A Square class
+    """
     def __init__(self, size, x=0, y=0, id=None):
-        """Method that initialized the square
-        Args:
-           size: side's size of the square
-           x: Position on x axis.
-           y: Position on y axis.
-        Return:
-           Always nothing.
-        """
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
-        """Method that returns a string"""
-        return ("[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
-                                                  self.width))
+        """
+        string representation of the class
+
+        Returns:
+            str: string representation of the class
+        """
+        x = self.x
+        y = self.y
+        width = self.width
+
+        return f"[Square] ({self.id}) {x}/{y} - {width}"
 
     @property
     def size(self):
-        """Getter the size of the square
+        """
+        Gets the size of the square class
+
+        Returns:
+            int: size of the square
         """
         return self.width
 
     @size.setter
     def size(self, value):
-        """Setter the size of the square
-        Args:
-           value: Size to assign
-        Return:
-           Always Nothing
         """
+        Given a value, sets the size of the square class
+
+        Args:
+            value(int): size of the square class
+        """
+        if type(value) is not int:
+            raise TypeError("width must be an integer")
+        if value <= 0:
+            raise ValueError("width must be > 0")
         self.width = value
-        self.heigth = value
+        self.height = value
 
     def update(self, *args, **kwargs):
-        """Method that update arguments for square object
-        Args:
-           *args: list of arguments.
-           **kwargs: Dictionary of the arguments.
-        Return:
-           Always nothing
         """
-        dict_order = ['id', 'size', 'x', 'y']
-        if args is not None and bool(args) is True:
-            i = 0
-            for key in dict_order:
-                try:
-                    setattr(self, key, args[i])
-                except IndexError:
-                    pass
-                i += 1
+        Based on the two arguments, updates the attributes of the current
+        instance
+
+        Args:
+            args(list): variable length of instance attribute values
+            kwargs(dict): variable length of dictionary of attribute:value
+        """
+        if args is not None and len(args) > 0:
+            ls = ['id', 'size', 'x', 'y']
+            for i in range(0, len(args)):
+                setattr(self, ls[i], args[i])
         else:
-            for key in dict_order:
-                try:
-                    setattr(self, key, kwargs[key])
-                except KeyError:
-                    pass
+            for k, v in kwargs.items():
+                setattr(self, k, v)
 
     def to_dictionary(self):
-        """Method that returns the dictionary
-           representation of a Square.
         """
-        dict_order = ['id', 'x', 'size', 'y']
-        dict_attrs = {}
-        for key in dict_order:
-            dict_attrs[key] = getattr(self, key)
-        return dict_attrs
+        generates dictionary reprsentation of the current instance
+
+        Returns:
+            dict: dictionary of instance attributes and their value
+        """
+        return {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y}
+
+if __name__ == "__main__":
+    pass
