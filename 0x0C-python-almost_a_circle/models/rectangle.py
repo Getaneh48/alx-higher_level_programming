@@ -178,5 +178,6 @@ class Rectangle(Base):
         return {'x': self.x, 'y': self.y, 'id': self.id,
                 'width': self.width, 'height': self.height}
 
+
 if __name__ == "__main__":
     pass
