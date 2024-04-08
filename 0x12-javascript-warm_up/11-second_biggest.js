@@ -8,7 +8,8 @@ const args = process.argv;
 if (args.length === 2 || args.length === 3) {
   console.log(0);
 } else {
-  const list = args.slice(2, args.length);
+  let list = args.slice(2, args.length);
   list.sort().reverse();
+  list = [...new Set(list)];
   console.log(list[1]);
 }
