@@ -4,12 +4,11 @@
 */
 
 exports.nbOccurences = function (list, searchElement) {
-	let occurence = 0;
-	for (let item of list) {
-		if (item === searchElement) {
-			occurence++;
-		}
-	}
-	
-	return (occurence);
-}
+  let occurence = 0;
+  for (const item of list) {
+    if (item === searchElement) {
+      occurence++;
+    }
+  }
+  return (occurence);
+};
