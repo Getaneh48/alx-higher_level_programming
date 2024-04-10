@@ -3,13 +3,9 @@
  * a script that defines a square class
 */
 
-const Rectangle = require('./4-rectangle');
+const Sqr = require('./5-square');
 
-class Square extends Rectangle {
-  constructor (size) {
-    super(size, size);
-  }
-
+class Square extends Sqr {
   charPrint (c) {
     let ch = '';
     if (c) {
