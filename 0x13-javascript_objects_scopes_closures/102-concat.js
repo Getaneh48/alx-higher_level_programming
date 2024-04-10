@@ -11,6 +11,17 @@
 const fs = require('fs');
 const args = process.argv;
 
+// check if destination exists and delete it
+fs.access(args[4], fs.constants.F_OK, (err) => {
+  if (err) {
+    // means the file doesn't exists so do nothing
+  } else {
+    fs.unlink(args[4], (uerror) => {
+      // output some error
+    });
+  }
+});
+
 for (let i = 2; i <= 3; i++) {
   fs.readFile(args[i], 'utf-8', (err, data) => {
     if (err) {
