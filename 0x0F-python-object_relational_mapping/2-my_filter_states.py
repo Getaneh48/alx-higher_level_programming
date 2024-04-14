@@ -17,7 +17,7 @@ if __name__ == '__main__':
     db = mdb.connect(host='localhost', port=port, user=username,
                      passwd=password, db=dbname)
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name = '{}' ORDER BY id"
+    cur.execute("SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY id"
                 .format(search_key))
     for row in cur.fetchall():
         print(row)
