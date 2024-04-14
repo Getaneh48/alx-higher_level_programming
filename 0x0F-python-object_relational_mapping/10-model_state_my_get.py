@@ -8,7 +8,6 @@ from model_state import Base, State
 
 from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy.exc import NoResultFound
 
 if __name__ == "__main__":
     search_key = sys.argv[4]
@@ -19,8 +18,8 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
+    state = session.query(State).filter(State.name == (search_key, ))
     try:
-        state = session.query(State).filter(State.name == search_key).one()
-        print(state.id)
-    except NoResultFound:
+        print(state[0].id)
+    except IndexError:
         print("Not Found")
