@@ -1,12 +1,13 @@
 #!/usr/bin/python3
 """
 a script that prints the State object with the name passed as
-argument from the database hbtn_0e_6_usa
+argument from the database hbtn_0e_6_usa. also, prevents sql injection
+attack
 """
 import sys
 from model_state import Base, State
 
-from sqlalchemy import (create_engine)
+from sqlalchemy import create_engine, bindparam
 from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
@@ -18,8 +19,12 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    state = session.query(State).filter_by(name=search_key)
-    try:
-        print(state[0].id)
-    except IndexError:
+# Filter State objects by name using bindparam to prevent SQL injection
+    query = session.query(State).filter(State.name == bindparam('search_key'))
+
+    # Set the value for the bind parameter (sanitize if needed)
+    state = query.params(search_key=search_key).first()
+    if state:
+        print(state.id)
+    else:
         print("Not Found")
