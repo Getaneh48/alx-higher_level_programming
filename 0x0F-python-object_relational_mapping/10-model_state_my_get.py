@@ -18,7 +18,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    state = session.query(State).filter(State.name == (search_key, ))
+    state = session.query(State).filter_by(name=search_key)
     try:
         print(state[0].id)
     except IndexError:
