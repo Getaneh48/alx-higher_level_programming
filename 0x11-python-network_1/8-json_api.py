@@ -25,4 +25,4 @@ if __name__ == '__main__':
         else:
             print(f"[{result['id']}] {result['name']}")
     except requests.exceptions.JSONDecodeError:
-        print("No result")
+        print("Not a valid JSON")
