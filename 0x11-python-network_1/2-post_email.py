@@ -16,9 +16,9 @@ if __name__ == '__main__':
     email = sys.agv[2]
     data = {'email': email}
     post_data = urlib.parse.urlencode(data)
-    post_data = post_data.encode('utf8')
+    post_data = post_data.encode('utf-8')
     req = urllib.request.Request(url, post_data)
 
     with urllib.request.urlopen(req) as resp:
         result = resp.read()
-        print(result.decode("utf8"))
+        print(result.decode("utf-8"))
