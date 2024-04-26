@@ -16,12 +16,12 @@ if __name__ == '__main__':
         data = {'q': search}
     else:
         data = {'q': ''}
-    resp = requests.post(url, data=data)
-    result = resp.json()
-    if resp.headers.get('Content-Type') == 'application/json':
+    try:
+        resp = requests.post(url, data=data)
+        result = resp.json()
         if len(result) == 0:
             print("No result")
         else:
             print(f"[{result['id']}] {result['name']}")
-    else:
+    except:
         print("No result")
