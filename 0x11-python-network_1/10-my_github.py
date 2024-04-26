@@ -6,15 +6,13 @@ Module to access to the GitHub API and uses the information
 
 if __name__ == '__main__':
     import requests
-    from requests.auth import HTTPBasicAuth
     from sys import argv
 
     user = argv[1]
-    password = argv[2]
-    response = requests.get('https://api.github.com/user',
-                            auth=HTTPBasicAuth(user, password))
-    try:
-        profile_info = response.json()
-        print(profile_info['id'])
-    except requests.exceptions.JSONDecodeError:
-        print('None')
+    token = argv[2]
+    url = 'https://api.github.com/user'
+    response = requests.get(url, auth=(user, token))
+    if response.status_code == 200:
+        print(response.json().get('id'))
+    else:
+        print("None")
