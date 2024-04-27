@@ -5,20 +5,17 @@ POST request to the passed URL with the email as a parameter,
 and displays the body of the response (decoded in utf-8)
 """
 
-import urllib.request
-import sys
-
 if __name__ == '__main__':
     """
     entry point
     """
-    url = sys.argv[1]
-    email = sys.agv[2]
-    data = {'email': email}
-    post_data = urlib.parse.urlencode(data)
-    post_data = post_data.encode('utf-8')
-    req = urllib.request.Request(url, post_data)
+    from urllib.request import urlopen, Request
+    from urllib.parse import urlencode
+    import sys
 
-    with urllib.request.urlopen(req) as resp:
-        result = resp.read()
-        print(result.decode("utf-8"))
+    email = sys.argv[2]
+    url = sys.argv[1]
+    data = {'email': email}
+
+    with urlopen(url, urlencode(data).encode('utf-8')) as resp:
+        print(resp.read().decode('utf-8'))
